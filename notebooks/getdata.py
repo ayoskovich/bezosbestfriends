@@ -42,5 +42,5 @@ for i, elem in enumerate(elems):
 for year, url in alldata.items():
     response = requests.get(url)
     print(f'Writing {year}')
-    with open(f'data/Letter_{year}.pdf', 'wb') as f:
+    with open(f'againdata/Letter_{year}.pdf', 'wb') as f:
         f.write(response.content)
