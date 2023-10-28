@@ -1,13 +1,13 @@
 # Customer Obsession
 
-This is a dashboard built with Dash that analyzes the last decade or so of shareholder letters from Amazon.
+This is a dashboard built with Dash that analyzes shareholder letters from Amazon going back to 1998.
 
 ## This project consisted of a few main steps:
 
 1. Download all the shareholder letters as pdfs (using `selenium`)
 2. Extract the text out of the pdfs (using `pypdf`)
-3. Analyze the text (using `nltk`)
-4. Display the results (using `Dash`)
+3. Analyze the text (using `nltk` and `wordninja`)
+4. Display the results (using `Dash` and `Heroku`)
 
 ## Assumptions
 
@@ -15,15 +15,12 @@ This is a dashboard built with Dash that analyzes the last decade or so of share
 
 ## Visual History:
 
-- 10-10-2023:
+- 10-28-2023:
 
-    - ![Alt text](history/101023/image.png)
-
-- 10-14-2023:
-
-    - ![Alt text](history/101423/image.png)
-    - ![Alt text](history/101423/image-1.png)
-    - ![Alt text](history/101423/image-2.png)
+    - ![Alt text](history/102823/1.png)
+    - ![Alt text](history/102823/2.png)
+    - ![Alt text](history/102823/3.png)
+    - ![Alt text](history/102823/4.png)
 
 - 10-22-2023:
 
@@ -32,29 +29,42 @@ This is a dashboard built with Dash that analyzes the last decade or so of share
     - ![Alt text](history/102223/3.png)
     - ![Alt text](history/102223/4.png)
 
+- 10-14-2023:
+
+    - ![Alt text](history/101423/image.png)
+    - ![Alt text](history/101423/image-1.png)
+    - ![Alt text](history/101423/image-2.png)
+
+- 10-10-2023:
+
+    - ![Alt text](history/101023/image.png)
+
 ## Personal Goals
 
 I had a few goals with this project:
 
 1. Learn more about Dash
 2. Learn more about sentiment analysis
-3. Finish an end-to-end analytics project, starting from data collection to a final deliverable (dashboard)
+3. Finish an end-to-end analytics project, starting from data collection (my selenium script) to a final deliverable (deployed dashboard)
 
-I learned quite a bit:
+And oh boy did I learn quite a bit:
 
-1. Obviously all the syntax and workings of `Dash`, `plotly`, and `nltk`
-2. Natural language processing has its own set of challenges
-    1. Cleaning up text to begin with
-        - Identifiying "sentences"
-        - Lemmatizing words vs. stemming them
-        - 
+- First and foremost, just the syntax and general workings of `Dash`, `plotly`, and `nltk`
+- Identifiying "sentences" was harder than I anticipated, as I needed to take into accounts acronyms ("etc.")
+- `pypdf` would sometimes combine words as each line broke, for example:
+    - ```
+    a test sentence
+    more words
+    ```
+    - Would end up being split into: `a test sentencemore words`
+    - I fixed this by using a package called [`wordninja`](https://github.com/keredson/wordninja) which will split the above into: `['a', 'test', 'sentence', 'more', 'words']`
+- I built a lot of analysis on top of the lemmatized version of the text instead of the raw version, but I didn't quite crack how to map between them lemmatized -> raw text 
+    - For example, if you search for a term on the search page, the concordance table on the bottom will show the _lemmatized_ version of the text instead of the raw version of the text. Definitely an area for improvement. 
+- I really liked the development experience of `Dash`, the `@callback` decorator clicked with me and I feel way more confident building vizzes with `plotly` and adding interactivity with `Dash`.
+- If you deploy an app to Heroku and mistakenly name your `Procfile` something like `ProcFile`, none of the dynos will get created in Heroku and the web service wont ever start. I needed to DELETE it, commit the deletion, deploy to Heroku, then re-add the Procfile (named correctly) and deploy.
 
 
 ## Random Notes
 
-- My webscraping script isn't perfect, for some reason the css selector didn't download the 2007 letter.
-- Stemming vs. lemmatizing
-- Needed to break apart words, linebreaks end up combining words in `pypdf`
-- Getting sentiment by sentences (.), vs. by number of words, vs. by a rolling score
-- How you define "word" / "sentence" / "punctuation" can change your analysis quite a bit
-- Running into an issue where if someone wants to search for a word, I need to search over the cleaned / lemmatized version (in order to pick up some other instances that aren't EXACTLY what the person is looking for), but then, I need to reconcile that with the actual raw text when displaying it visually. 
+- My webscraping script isn't perfect, for some reason the css selector didn't download the 2007 letter so I just downloaded that one manually
+- How you define "word" / "sentence" / "punctuation" can change the output your analysis dramatically
