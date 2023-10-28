@@ -9,36 +9,6 @@ This is a dashboard built with Dash that analyzes shareholder letters from Amazo
 3. Analyze the text (using `nltk` and `wordninja`)
 4. Display the results (using `Dash` and `Heroku`)
 
-## Assumptions
-
-- Starting 2001, the 1997 letter was attached to every report. For most of the analysis I did, this letter was excluded.
-
-## Visual History:
-
-- 10-28-2023:
-
-    - ![Alt text](history/102823/1.png)
-    - ![Alt text](history/102823/2.png)
-    - ![Alt text](history/102823/3.png)
-    - ![Alt text](history/102823/4.png)
-
-- 10-22-2023:
-
-    - ![Alt text](history/102223/1.png)
-    - ![Alt text](history/102223/2.png)
-    - ![Alt text](history/102223/3.png)
-    - ![Alt text](history/102223/4.png)
-
-- 10-14-2023:
-
-    - ![Alt text](history/101423/image.png)
-    - ![Alt text](history/101423/image-1.png)
-    - ![Alt text](history/101423/image-2.png)
-
-- 10-10-2023:
-
-    - ![Alt text](history/101023/image.png)
-
 ## Personal Goals
 
 I had a few goals with this project:
@@ -69,3 +39,29 @@ And oh boy did I learn quite a bit:
 
 - My webscraping script isn't perfect, for some reason the css selector didn't download the 2007 letter so I just downloaded that one manually
 - How you define "word" / "sentence" / "punctuation" can change the output your analysis dramatically
+
+## Visual History:
+
+- 10-28-2023:
+
+    - ![Alt text](history/102823/1.png)
+    - ![Alt text](history/102823/2.png)
+    - ![Alt text](history/102823/3.png)
+    - ![Alt text](history/102823/4.png)
+
+- 10-22-2023:
+
+    - ![Alt text](history/102223/1.png)
+    - ![Alt text](history/102223/2.png)
+    - ![Alt text](history/102223/3.png)
+    - ![Alt text](history/102223/4.png)
+
+- 10-14-2023:
+
+    - ![Alt text](history/101423/image.png)
+    - ![Alt text](history/101423/image-1.png)
+    - ![Alt text](history/101423/image-2.png)
+
+- 10-10-2023:
+
+    - ![Alt text](history/101023/image.png)
