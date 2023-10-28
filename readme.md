@@ -51,14 +51,15 @@ And oh boy did I learn quite a bit:
 
 - First and foremost, just the syntax and general workings of `Dash`, `plotly`, and `nltk`
 - Identifiying "sentences" was harder than I anticipated, as I needed to take into accounts acronyms ("etc.")
-- `pypdf` would sometimes combine words as each line broke, for example:
-    - ```
+- `pypdf` would sometimes combine words as each line broke, for example, if the pdf looked like this:
+    ```
     a test sentence
     more words
     ```
-    - Would end up being split into: `a test sentencemore words`
+
+- The text output would end up being: `a test sentencemore words`
     - I fixed this by using a package called [`wordninja`](https://github.com/keredson/wordninja) which will split the above into: `['a', 'test', 'sentence', 'more', 'words']`
-- I built a lot of analysis on top of the lemmatized version of the text instead of the raw version, but I didn't quite crack how to map between them lemmatized -> raw text 
+- I built a lot of analysis on top of the lemmatized version of the text instead of the raw version, but I didn't quite crack how to map between the lemmatized -> raw text 
     - For example, if you search for a term on the search page, the concordance table on the bottom will show the _lemmatized_ version of the text instead of the raw version of the text. Definitely an area for improvement. 
 - I really liked the development experience of `Dash`, the `@callback` decorator clicked with me and I feel way more confident building vizzes with `plotly` and adding interactivity with `Dash`.
 - If you deploy an app to Heroku and mistakenly name your `Procfile` something like `ProcFile`, none of the dynos will get created in Heroku and the web service wont ever start. I needed to DELETE it, commit the deletion, deploy to Heroku, then re-add the Procfile (named correctly) and deploy.
