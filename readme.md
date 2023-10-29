@@ -4,6 +4,7 @@ This is a dashboard built with Dash that analyzes shareholder letters from Amazo
 
 [Click here to view the dashboard](https://bezosbestfriends-0eab2be8c3af.herokuapp.com)
 
+[View the post on my website about this project here](https://www.anthonyyoskovich.com/projects/amz_shareholders/)
 ## Running the code locally
 
 If you'd like to run my code on your own computer:
