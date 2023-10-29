@@ -2,6 +2,19 @@
 
 This is a dashboard built with Dash that analyzes shareholder letters from Amazon going back to 1998.
 
+[Click here to view the dashboard](https://bezosbestfriends-0eab2be8c3af.herokuapp.com)
+
+## Running the code locally
+
+If you'd like to run my code on your own computer:
+
+- Clone the repo
+- Create / activate a virtual environment using `requirements.txt`
+- Start the dashboard with `python app.py`
+- Go to `http://127.0.0.1:8050/` in your browser
+
+I've included the scraped pdf files, but if you'd like to rescrape them you can use the `getdata.py` script in `notebooks`.
+
 ## This project consisted of a few main steps:
 
 1. Download all the shareholder letters as pdfs (using `selenium`)
